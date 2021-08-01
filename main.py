@@ -14,7 +14,7 @@ def main():
             title = row["Title"]
             yt = YouTube(row["Link"])
             stream = yt.streams.filter(type="audio").first()
-            audio_path = stream.download(output_path="output", filename=title)
+            audio_path = stream.download(output_path="output", filename=title + ".mp4")
 
             audio_file = music_tag.load_file(audio_path)
             audio_file["title"] = title
